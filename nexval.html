@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nexval — Roy | Advies voor organisaties, ondernemers en individuen</title>
+<meta name="description" content="Roy bij Nexval lost operationele, organisatorische en persoonlijke vraagstukken op. Directe aanpak, concrete resultaten, geen retainers.">
+<meta property="og:title" content="Nexval — Roy">
+<meta property="og:description" content="Wat er ook mis is — we lossen het op. Advies voor bedrijven, ondernemers en individuen.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://nexval.nl">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+/* ── RESET & ROOT ── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:       #0c0c0a;
+  --bg2:      #111110;
+  --bg3:      #181816;
+  --bg4:      #1f1f1d;
+  --ink:      #f0ede6;
+  --ink2:     rgba(240,237,230,.62);
+  --ink3:     rgba(240,237,230,.36);
+  --ink4:     rgba(240,237,230,.16);
+  --green:    #3d9e62;
+  --green2:   #2d7449;
+  --green-bg: rgba(61,158,98,.11);
+  --green-br: rgba(61,158,98,.28);
+  --border:   rgba(240,237,230,.08);
+  --border2:  rgba(240,237,230,.13);
+  --fh:'Syne',sans-serif;
+  --fb:'DM Sans',sans-serif;
+  --max:1180px;
+  --r:2px;
+}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--fb);background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;font-size:16px;line-height:1.6;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.1rem 4rem;
+  background:rgba(12,12,10,.92);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+  border-bottom:.5px solid var(--border);
+  transition:padding .3s;
+}
+nav.scrolled{padding:.85rem 4rem}
+.logo{font-family:var(--fh);font-weight:800;font-size:1.2rem;letter-spacing:-.03em;color:var(--ink)}
+.logo em{font-style:normal;color:var(--green)}
+.nav-links{display:flex;gap:2.25rem;list-style:none;align-items:center}
+.nav-links a{font-size:.83rem;color:var(--ink3);letter-spacing:.01em;transition:color .2s}
+.nav-links a:hover{color:var(--ink)}
+.nav-cta{
+  background:var(--green)!important;color:#0a0a08!important;
+  padding:.48rem 1.2rem!important;border-radius:var(--r);
+  font-weight:600!important;font-size:.83rem!important;
+  transition:background .2s,transform .15s!important;
+}
+.nav-cta:hover{background:#4db872!important;transform:translateY(-1px)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.hamburger span{display:block;width:22px;height:1.5px;background:var(--ink);transition:all .3s}
+.hamburger.open span:nth-child(1){transform:rotate(45deg) translate(4px,4px)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(4px,-4px)}
+.mobile-menu{
+  display:none;position:fixed;top:0;left:0;right:0;bottom:0;
+  background:rgba(12,12,10,.98);z-index:190;
+  flex-direction:column;align-items:center;justify-content:center;gap:2.5rem;
+}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-family:var(--fh);font-size:1.75rem;font-weight:700;color:var(--ink);letter-spacing:-.02em}
+.mobile-menu a:hover{color:var(--green)}
+.mobile-cta{background:var(--green)!important;color:#0a0a08!important;padding:.75rem 2rem!important;border-radius:var(--r);font-size:1rem!important}
+
+/* ── HELPERS ── */
+.wrap{max-width:var(--max);margin:0 auto}
+.eyebrow{font-size:.7rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--green);margin-bottom:1.75rem;display:flex;align-items:center;gap:.75rem}
+.eyebrow::before{content:'';display:block;width:2rem;height:1px;background:var(--green)}
+h2{font-family:var(--fh);font-weight:700;font-size:2.2rem;letter-spacing:-.03em;line-height:1.08;margin-bottom:.85rem}
+.section-intro{font-size:1rem;color:var(--ink2);max-width:50ch;font-weight:300;line-height:1.8;margin-bottom:3.5rem}
+section{padding:7rem 4rem}
+
+/* ── HERO ── */
+.hero{
+  min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;
+  padding:9rem 4rem 5rem;position:relative;overflow:hidden;
+}
+.hero-watermark{
+  position:absolute;right:-3vw;top:50%;transform:translateY(-50%);
+  font-family:var(--fh);font-weight:800;font-size:min(46vw,560px);line-height:1;
+  color:rgba(240,237,230,.018);pointer-events:none;user-select:none;
+  letter-spacing:-.06em;
+}
+.hero h1{
+  font-family:var(--fh);font-weight:800;
+  font-size:3.75rem;
+  line-height:1.04;letter-spacing:-.035em;
+  max-width:18ch;margin-bottom:1.5rem;
+}
+.hero h1 em{font-style:normal;color:var(--green)}
+.hero-sub{font-size:1rem;color:var(--ink2);max-width:50ch;font-weight:300;line-height:1.82;margin-bottom:1.35rem}
+.hero-detail{
+  font-size:.875rem;color:var(--ink3);max-width:54ch;font-weight:300;
+  line-height:1.78;margin-bottom:3rem;
+  padding-left:1.1rem;border-left:2px solid var(--green2);
+}
+.hero-detail strong{color:var(--ink);font-weight:500}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap;align-items:center}
+.btn-primary{
+  display:inline-flex;align-items:center;gap:.5rem;
+  background:var(--green);color:#0a0a08;
+  padding:.85rem 1.85rem;font-family:var(--fb);font-size:.875rem;
+  font-weight:600;border:none;border-radius:var(--r);cursor:pointer;
+  transition:background .2s,transform .15s;
+}
+.btn-primary:hover{background:#4db872;transform:translateY(-1px)}
+.btn-ghost{
+  display:inline-flex;align-items:center;gap:.5rem;
+  background:transparent;color:var(--ink3);
+  padding:.85rem 1.85rem;font-size:.875rem;font-weight:400;
+  border:.5px solid var(--border2);border-radius:var(--r);
+  transition:background .2s,color .2s,transform .15s;
+}
+.btn-ghost:hover{background:var(--bg3);color:var(--ink);transform:translateY(-1px)}
+
+/* AUDIENCE CARDS */
+.audience-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:1px;background:var(--border);
+  border:.5px solid var(--border);margin-top:5rem;
+}
+.audience-card{background:var(--bg2);padding:2.1rem 1.85rem;transition:background .25s}
+.audience-card:hover{background:var(--bg3)}
+.audience-icon{font-size:1.1rem;margin-bottom:1.1rem;line-height:1}
+.audience-card h3{font-family:var(--fh);font-weight:700;font-size:.97rem;letter-spacing:-.01em;margin-bottom:.55rem;color:var(--ink)}
+.audience-card p{font-size:.84rem;color:var(--ink3);font-weight:300;line-height:1.72}
+
+/* ── ABOUT ── */
+.about{background:var(--bg2);border-top:.5px solid var(--border);border-bottom:.5px solid var(--border)}
+.about-inner{display:grid;grid-template-columns:1fr 1fr;gap:5.5rem;align-items:start}
+.about-text p{font-size:.96rem;color:var(--ink2);font-weight:300;line-height:1.88;margin-bottom:1.15rem}
+.about-text p strong{color:var(--ink);font-weight:500}
+.psych-note{
+  margin-top:1.85rem;padding:1.1rem 1.25rem;
+  background:var(--green-bg);border-left:2px solid var(--green);
+  border-radius:0 var(--r) var(--r) 0;
+}
+.psych-note p{font-size:.855rem;color:var(--green);font-weight:400;line-height:1.68}
+.psych-note strong{font-weight:600;color:#5dc984}
+.skills{display:flex;flex-direction:column;border:.5px solid var(--border);margin-top:.35rem}
+.skill-row{
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  padding:.95rem 1.15rem;border-bottom:.5px solid var(--border);
+  background:var(--bg3);transition:background .2s;
+}
+.skill-row:last-child{border-bottom:none}
+.skill-row:hover{background:var(--bg4)}
+.skill-name{font-size:.855rem;font-weight:500;color:var(--ink)}
+.skill-tags{display:flex;gap:.28rem;flex-wrap:wrap;justify-content:flex-end}
+.tag{
+  font-size:.62rem;font-weight:500;letter-spacing:.04em;
+  color:var(--green);background:var(--green-bg);
+  border:.5px solid var(--green-br);
+  padding:.18rem .48rem;border-radius:var(--r);
+}
+
+/* ── CASES ── */
+.cases{background:var(--bg)}
+.case-list{display:flex;flex-direction:column;border:.5px solid var(--border)}
+.case{display:grid;grid-template-columns:2fr 1fr 1fr;border-bottom:.5px solid var(--border);transition:background .22s;cursor:default}
+.case:last-child{border-bottom:none}
+.case:hover{background:rgba(240,237,230,.022)}
+.case-main{padding:2.35rem;border-right:.5px solid var(--border)}
+.case-col{padding:1.85rem;border-right:.5px solid var(--border)}
+.case-col:last-child{border-right:none}
+.case-type{font-size:.62rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--green);margin-bottom:.8rem}
+.case-main h3{font-family:var(--fh);font-weight:700;font-size:1.1rem;letter-spacing:-.02em;color:var(--ink);margin-bottom:.7rem;line-height:1.28}
+.case-main p{font-size:.855rem;color:var(--ink3);font-weight:300;line-height:1.78;max-width:44ch}
+.col-label{font-size:.6rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--ink4);margin-bottom:.65rem}
+.col-item{margin-bottom:.8rem}
+.col-item:last-child{margin-bottom:0}
+.col-item strong{display:block;font-size:.84rem;color:var(--ink);font-weight:500;margin-bottom:.15rem}
+.col-item span{font-size:.82rem;color:var(--ink3);font-weight:300;line-height:1.65}
+
+/* ── SERVICES ── */
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:.5px solid var(--border)}
+.svc{background:var(--bg2);padding:2.1rem 1.85rem;transition:background .22s}
+.svc:hover{background:var(--bg3)}
+.svc-num{font-family:var(--fh);font-weight:700;font-size:.68rem;color:var(--green);letter-spacing:.1em;margin-bottom:1.15rem}
+.svc h3{font-family:var(--fh);font-weight:700;font-size:.97rem;letter-spacing:-.01em;margin-bottom:.55rem;line-height:1.25;color:var(--ink)}
+.svc p{font-size:.84rem;color:var(--ink3);line-height:1.72;font-weight:300}
+
+/* ── APPROACH ── */
+.approach{background:var(--bg2);border-top:.5px solid var(--border);border-bottom:.5px solid var(--border)}
+.approach-grid{display:grid;grid-template-columns:repeat(4,1fr);border:.5px solid var(--border)}
+.step{padding:2.1rem 1.85rem;border-right:.5px solid var(--border);background:var(--bg3)}
+.step:last-child{border-right:none}
+.step-n{font-family:var(--fh);font-weight:800;font-size:3.25rem;color:rgba(240,237,230,.048);line-height:1;margin-bottom:1.15rem;letter-spacing:-.04em}
+.step h4{font-family:var(--fh);font-weight:700;font-size:.94rem;margin-bottom:.48rem;color:var(--ink)}
+.step p{font-size:.84rem;color:var(--ink3);font-weight:300;line-height:1.68}
+
+/* ── CTA / CONTACT ── */
+.contact{background:var(--bg3);border-top:.5px solid var(--border);text-align:center}
+.contact h2{max-width:24ch;margin:0 auto 1rem}
+.contact .sub{color:var(--ink2);font-weight:300;margin-bottom:2.5rem;max-width:50ch;margin-left:auto;margin-right:auto;font-size:.96rem}
+.contact-meta{display:flex;gap:2.25rem;justify-content:center;margin-top:1.5rem;flex-wrap:wrap}
+.contact-meta span{font-size:.8rem;color:var(--ink3);display:flex;align-items:center;gap:.4rem}
+.contact-meta strong{color:var(--ink);font-weight:500}
+
+/* ── FOOTER ── */
+footer{
+  padding:2rem 4rem;
+  border-top:.5px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:1rem;
+  background:var(--bg);
+}
+.footer-logo{font-family:var(--fh);font-weight:800;font-size:.95rem;letter-spacing:-.03em}
+.footer-logo em{font-style:normal;color:var(--green)}
+footer p{font-size:.75rem;color:var(--ink3);font-weight:300}
+
+/* ── ANIMATIONS ── */
+.fade-up{opacity:0;transform:translateY(24px);transition:opacity .65s ease,transform .65s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1024px){
+  nav,section,footer,.hero{padding-left:2.5rem;padding-right:2.5rem}
+  .about-inner{grid-template-columns:1fr;gap:3rem}
+  .services-grid{grid-template-columns:1fr 1fr}
+  .approach-grid{grid-template-columns:1fr 1fr}
+  .step:nth-child(2){border-right:none}
+  .step:nth-child(3){border-top:.5px solid var(--border)}
+  .case{grid-template-columns:1fr}
+  .case-col{border-right:none;border-top:.5px solid var(--border)}
+  .audience-grid{grid-template-columns:1fr}
+  .nav-links{display:none}
+  .hamburger{display:flex}
+}
+@media(max-width:640px){
+  nav,section,footer,.hero{padding-left:1.35rem;padding-right:1.35rem}
+  .hero h1{font-size:2.4rem}
+  h2{font-size:1.75rem}
+  .services-grid{grid-template-columns:1fr}
+  .approach-grid{grid-template-columns:1fr}
+  .step:nth-child(2){border-right:none}
+  .step{border-bottom:.5px solid var(--border)}
+  .step:last-child{border-bottom:none}
+  .hero-btns{flex-direction:column;align-items:flex-start}
+  .btn-primary,.btn-ghost{width:100%;justify-content:center}
+  footer{flex-direction:column;text-align:center}
+  nav{padding-left:1.35rem;padding-right:1.35rem}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="logo">Nex<em>val</em></a>
+  <ul class="nav-links">
+    <li><a href="#over-roy">Over Roy</a></li>
+    <li><a href="#cases">Cases</a></li>
+    <li><a href="#diensten">Diensten</a></li>
+    <li><a href="#werkwijze">Werkwijze</a></li>
+    <li><a href="#contact" class="nav-cta">Plan een gesprek</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" aria-label="Menu" role="button" tabindex="0">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#over-roy" class="mobile-link">Over Roy</a>
+  <a href="#cases" class="mobile-link">Cases</a>
+  <a href="#diensten" class="mobile-link">Diensten</a>
+  <a href="#werkwijze" class="mobile-link">Werkwijze</a>
+  <a href="#contact" class="mobile-link mobile-cta">Plan een gesprek</a>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-watermark" aria-hidden="true">N</div>
+  <div class="wrap">
+    <div class="eyebrow fade-up">Roy · Nexval</div>
+    <h1 class="fade-up">Wat er ook mis is —&nbsp;<em>we lossen het op.</em></h1>
+    <p class="hero-sub fade-up">Ik werk met bedrijven, ondernemers en individuen die vastzitten. Vastgelopen processen, onduidelijke systemen, patronen die niet werken, of problemen die ze zelf nog niet goed kunnen benoemen.</p>
+    <p class="hero-detail fade-up">Ik combineer <strong>systeemdenken, operationele expertise, data-analyse en een Master Psychologie.</strong> Dat betekent dat ik zie wat er écht misgaat — niet alleen wat zichtbaar is — en iets bouw dat blijft werken.</p>
+    <div class="hero-btns fade-up">
+      <a href="#contact" class="btn-primary">Plan een gratis kennismakingsgesprek&nbsp;→</a>
+      <a href="#cases" class="btn-ghost">Bekijk het werk</a>
+    </div>
+    <div class="audience-grid fade-up">
+      <div class="audience-card">
+        <div class="audience-icon">🏢</div>
+        <h3>Organisaties &amp; teams</h3>
+        <p>Compliance-hiaten, inefficiënte processen, systeemintegraties, data die niet klopt, of verandering die niet landt. Elke sector, elke omvang.</p>
+      </div>
+      <div class="audience-card">
+        <div class="audience-icon">⚡</div>
+        <h3>Ondernemers &amp; zzp'ers</h3>
+        <p>Je bouwt iets en loopt tegen muren aan — in je systemen, je processen, je denkpatronen of je teamdynamiek. Ik help je snel verder.</p>
+      </div>
+      <div class="audience-card">
+        <div class="audience-icon">🧭</div>
+        <h3>Individuen</h3>
+        <p>Loopbaankeuzes, persoonlijke helderheid, gedragspatronen die je belemmeren, of doelen die maar niet lukken. Eerlijk, praktisch en zonder vaagheden.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- OVER ROY -->
+<section id="over-roy" class="about">
+  <div class="wrap about-inner">
+    <div class="about-text">
+      <div class="eyebrow fade-up">Over Roy</div>
+      <h2 class="fade-up">Het volledige plaatje — systemen én mensen</h2>
+      <p class="fade-up">De meeste consultants zitten in één hokje. Ik niet. Mijn achtergrond omvat <strong>operationeel advies, kwaliteitsmanagement, IT-integraties, data-modellering en organisatiepsychologie</strong> — en ik heb dat alles toegepast in echte organisaties, onder echte druk.</p>
+      <p class="fade-up">De meeste problemen die eruitzien als procesprobleem zijn ook deels een mensenprobleem. En de meeste mensenprobleem hebben een structurele oorzaak eronder. Ik zie allebei — en pak allebei aan.</p>
+      <p class="fade-up">Ik duik snel en grondig in elk nieuw domein. Dat is geen claim — het is een patroon dat zich keer op keer heeft bewezen, in logistiek, compliance, technologie en persoonlijk advies.</p>
+      <div class="psych-note fade-up">
+        <p><strong>Master Psychologie.</strong> Geen bijzaak — het is wat het verschil maakt tussen advies dat goed klinkt en advies dat daadwerkelijk landt bij de mensen die er mee moeten werken.</p>
+      </div>
+    </div>
+    <div class="skills fade-up">
+      <div class="skill-row"><span class="skill-name">Kwaliteit &amp; compliance</span><div class="skill-tags"><span class="tag">ISO 9001</span><span class="tag">ISO 14001</span><span class="tag">CAPA</span></div></div>
+      <div class="skill-row"><span class="skill-name">Proces- &amp; verandermanagement</span><div class="skill-tags"><span class="tag">RACI</span><span class="tag">SOP's</span><span class="tag">Adoptie</span></div></div>
+      <div class="skill-row"><span class="skill-name">Logistiek &amp; supply chain</span><div class="skill-tags"><span class="tag">WMS</span><span class="tag">3PL</span><span class="tag">Carriers</span></div></div>
+      <div class="skill-row"><span class="skill-name">Data &amp; analyse</span><div class="skill-tags"><span class="tag">Power BI</span><span class="tag">DAX</span><span class="tag">Modellering</span></div></div>
+      <div class="skill-row"><span class="skill-name">IT &amp; systeemintegratie</span><div class="skill-tags"><span class="tag">API</span><span class="tag">Power Automate</span><span class="tag">ERP</span></div></div>
+      <div class="skill-row"><span class="skill-name">Organisatiepsychologie</span><div class="skill-tags"><span class="tag">Gedrag</span><span class="tag">Cultuur</span><span class="tag">Coaching</span></div></div>
+      <div class="skill-row"><span class="skill-name">Persoonlijk advies</span><div class="skill-tags"><span class="tag">Loopbaan</span><span class="tag">Helderheid</span><span class="tag">Beslissingen</span></div></div>
+      <div class="skill-row"><span class="skill-name">Snelle domeinbeheersing</span><div class="skill-tags"><span class="tag">Elk domein</span><span class="tag">Snel</span><span class="tag">Grondig</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CASES -->
+<section id="cases" class="cases">
+  <div class="wrap">
+    <div class="eyebrow fade-up">Geselecteerde cases</div>
+    <h2 class="fade-up">Hoe dit er in de praktijk uitziet</h2>
+    <p class="section-intro fade-up">Organisaties, systemen en mensen. Vier verschillende domeinen, één aanpak.</p>
+    <div class="case-list fade-up">
+
+      <div class="case">
+        <div class="case-main">
+          <div class="case-type">Compliance · Kwaliteitssystemen · Documentatie</div>
+          <h3>Van auditchaos naar een schone Stage 2 — binnen weken</h3>
+          <p>Een logistieke organisatie had geen centrale CAPA-registratie, onvolledige interne auditverslagen en een compliance-tool die niet meer functioneerde. We herbouwden het volledige documentatiesysteem, losten alle openstaande non-conformiteiten op en produceerden de directiebeoordeling — binnen een krappe deadline.</p>
+        </div>
+        <div class="case-col">
+          <div class="col-label">Aanpak</div>
+          <div class="col-item"><strong>Gap-analyse</strong><span>Alle bevindingen getoetst aan ISO-eisen vóór er een document werd aangeraakt</span></div>
+          <div class="col-item"><strong>Stakeholderafstemming</strong><span>Auditees, management en kwaliteitsrollen onder één plan</span></div>
+        </div>
+        <div class="case-col">
+          <div class="col-label">Resultaat</div>
+          <div class="col-item"><strong>Audit geslaagd</strong><span>Alle minor NC's formeel afgesloten met gedocumenteerde corrigerende maatregelen</span></div>
+          <div class="col-item"><strong>Duurzaam systeem</strong><span>Auditstructuur opgebouwd om zonder externe hulp door te draaien</span></div>
+        </div>
+      </div>
+
+      <div class="case">
+        <div class="case-main">
+          <div class="case-type">IT-integratie · Operaties · Coördinatie</div>
+          <h3>End-to-end WMS–ERP–carrier integratie voor een nieuwe fulfillment klant</h3>
+          <p>De onboarding van een nieuwe e-commerce klant vereiste het koppelen van het ERP aan het WMS, het instellen van labelgeneratie via de carrier en het draaien van live testcycli met drie organisaties tegelijk. Volledige technische coördinatie, issue logging, escalaties en go-live validatie.</p>
+        </div>
+        <div class="case-col">
+          <div class="col-label">Aanpak</div>
+          <div class="col-item"><strong>Integratiekaart</strong><span>Volledige dataflow gedocumenteerd vóór enige ontwikkeling begon</span></div>
+          <div class="col-item"><strong>Live testcoördinatie</strong><span>Drielaagse testcycli in real time beheerd</span></div>
+        </div>
+        <div class="case-col">
+          <div class="col-label">Resultaat</div>
+          <div class="col-item"><strong>Op tijd live</strong><span>Volledige orderflow operationeel binnen afgesproken tijdlijn</span></div>
+          <div class="col-item"><strong>Schone overdracht</strong><span>Integratiespecificaties en SOP's gedocumenteerd voor het operationele team</span></div>
+        </div>
+      </div>
+
+      <div class="case">
+        <div class="case-main">
+          <div class="case-type">Organisatiepsychologie · Verandermanagement · Structuur</div>
+          <h3>Rolhelderheid en verantwoordelijkheid in een groeiende organisatie</h3>
+          <p>Een groeiend bedrijf had verantwoordelijkheidsgaten overal — niet omdat mensen incompetent waren, maar omdat de structuur de groei niet had bijgehouden. Op basis van functiebeschrijvingen en directe observatie werd een RACI-matrix gebouwd en een verandervoorstel opgesteld dat direct werd opgepakt.</p>
+        </div>
+        <div class="case-col">
+          <div class="col-label">Aanpak</div>
+          <div class="col-item"><strong>Profiel-gebaseerde RACI</strong><span>Afgeleid uit bestaande functiebeschrijvingen, niet uit aannames</span></div>
+          <div class="col-item"><strong>Menselijk framing</strong><span>Voorstel geschreven om te landen bij de psychologie van het leiderschapsteam</span></div>
+        </div>
+        <div class="case-col">
+          <div class="col-label">Resultaat</div>
+          <div class="col-item"><strong>Direct opgepakt</strong><span>Management nam structurele beslissingen binnen één reviewcyclus</span></div>
+          <div class="col-item"><strong>Levend document</strong><span>RACI wordt bijgehouden naarmate de organisatie verder groeit</span></div>
+        </div>
+      </div>
+
+      <div class="case">
+        <div class="case-main">
+          <div class="case-type">Persoonlijk advies · Loopbaan · Besluitvorming</div>
+          <h3>Helderheid op een loopbaankruispunt — wat opbouwen, wat loslaten</h3>
+          <p>Een individu in een seniorrol voelde zich aan meerdere kanten getrokken — stabiele positie versus ondernemersambities — zonder helder kader om te kiezen. Waarden, risicotolerantie, echte beperkingen en onderliggende patronen in kaart gebracht. Uitkomst: een gefaseerd plan zonder alles-of-niets.</p>
+        </div>
+        <div class="case-col">
+          <div class="col-label">Aanpak</div>
+          <div class="col-item"><strong>Waardenanalyse</strong><span>Wat écht telt versus wat er goed uitziet om te willen</span></div>
+          <div class="col-item"><strong>Patroonwerk</strong><span>Terugkerende beslislussen blootgelegd die de stagnatie veroorzaakten</span></div>
+        </div>
+        <div class="case-col">
+          <div class="col-label">Resultaat</div>
+          <div class="col-item"><strong>Duidelijke richting</strong><span>Concreet gefaseerd plan — geen vage vervolgstappen</span></div>
+          <div class="col-item"><strong>Minder ruis</strong><span>Drie aantrekkelijk lijkende opties geëlimineerd die niet pasten</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- DIENSTEN -->
+<section id="diensten">
+  <div class="wrap">
+    <div class="eyebrow fade-up">Diensten</div>
+    <h2 class="fade-up">Wat je bij mij kunt neerleggen</h2>
+    <p class="section-intro fade-up">Geen vaste pakketten. Elk traject begint bij het specifieke probleem — niet bij een catalogus.</p>
+    <div class="services-grid fade-up">
+      <div class="svc"><div class="svc-num">01</div><h3>Compliance &amp; auditvoorbereiding</h3><p>ISO-voorbereiding, non-conformiteitsoplossing, kwaliteitssysteemontwerp en directiebeoordelingsdocumentatie. Gebouwd om de audit én het jaar erna te overleven.</p></div>
+      <div class="svc"><div class="svc-num">02</div><h3>Procesontwerp &amp; -verbetering</h3><p>In kaart brengen wat er misgaat, herontwerpen wat er toe doet, SOP's bouwen die mensen daadwerkelijk volgen. Elke sector, elk type proces.</p></div>
+      <div class="svc"><div class="svc-num">03</div><h3>Verandermanagement</h3><p>Organisatieverandering laten landen — bij de mensen die er mee moeten leven. Strategie, communicatie, adoptie en de psychologie die er onder zit.</p></div>
+      <div class="svc"><div class="svc-num">04</div><h3>Data &amp; operationele analyse</h3><p>Power BI dashboards, KPI-frameworks en datamodellen die operationele realiteit omzetten in iets waar je daadwerkelijk op kunt sturen.</p></div>
+      <div class="svc"><div class="svc-num">05</div><h3>Systeem &amp; IT-integratie</h3><p>Je platforms verbinden zodat informatie automatisch stroomt. WMS, ERP, carriers, interne tooling — gecoördineerd en gedocumenteerd.</p></div>
+      <div class="svc"><div class="svc-num">06</div><h3>Persoonlijk &amp; professioneel advies</h3><p>Loopbaankeuzes, persoonlijke helderheid, gedragspatronen, doelstelling die beklijft. Voor mensen die een denkpartner willen, geen generieke coaching.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- WERKWIJZE -->
+<section id="werkwijze" class="approach">
+  <div class="wrap">
+    <div class="eyebrow fade-up">Werkwijze</div>
+    <h2 class="fade-up">Direct, afgebakend, geen abonnementen</h2>
+    <p class="section-intro fade-up">Je weet wat je krijgt voordat we beginnen. Altijd.</p>
+    <div class="approach-grid fade-up">
+      <div class="step"><div class="step-n">01</div><h4>Gratis kennismakingsgesprek</h4><p>30 minuten. Ik luister, stel de juiste vragen en vertel je eerlijk wat ik denk — ook als ik niet de juiste persoon ben.</p></div>
+      <div class="step"><div class="step-n">02</div><h4>Helder voorstel</h4><p>Vaste deliverables, vaste tijdlijn, vaste prijs. Geen retainers, geen uurtje-factuurtje verrassingen, geen scope creep.</p></div>
+      <div class="step"><div class="step-n">03</div><h4>Diep en snel werk</h4><p>Ik ga er grondig in en beweeg snel. Je werkt direct met mij — niet met een team juniors dat op mijn naam draait.</p></div>
+      <div class="step"><div class="step-n">04</div><h4>Schone overdracht</h4><p>Alles gedocumenteerd, overgedragen en werkend zonder mij. Geen afhankelijkheid. Dat is het punt.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+  <div class="wrap">
+    <div class="eyebrow fade-up" style="justify-content:center">Samenwerken met Roy</div>
+    <h2 class="fade-up">Leg me je probleem voor —<br>welk probleem dan ook.</h2>
+    <p class="sub fade-up">Als het te maken heeft met systemen, processen, data, organisaties of mensen — dan vertel ik je in 30 minuten of en hoe ik kan helpen. Geen verkooppraatje, geen druk.</p>
+    <a href="mailto:hello@nexval.nl" class="btn-primary fade-up" style="display:inline-flex;margin:0 auto">Stuur Roy een bericht&nbsp;→</a>
+    <div class="contact-meta fade-up">
+      <span>✉&nbsp;<strong>hello@nexval.nl</strong></span>
+      <span>📍&nbsp;<strong>Zaandam, Nederland · Remote</strong></span>
+      <span>🗣&nbsp;<strong>Nederlands · Engels</strong></span>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Nex<em>val</em></div>
+  <p>© 2026 Nexval · Roy. Wat er ook mis is — we lossen het op.</p>
+  <p>KvK · BTW op aanvraag</p>
+</footer>
+
+<script>
+// NAV scroll effect
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 40);
+}, { passive: true });
+
+// Hamburger menu
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobile-menu');
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('open');
+  mobileMenu.classList.toggle('open');
+  document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+});
+hamburger.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') hamburger.click(); });
+document.querySelectorAll('.mobile-link').forEach(link => {
+  link.addEventListener('click', () => {
+    hamburger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+    document.body.style.overflow = '';
+  });
+});
+
+// Fade-up on scroll
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.fade-up').forEach((el, i) => {
+  el.style.transitionDelay = (i % 5) * 0.07 + 's';
+  observer.observe(el);
+});
+</script>
+</body>
+</html>
